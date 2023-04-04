@@ -10,6 +10,8 @@
   <tr>
     <td><%= pct.content %></td>
     <td><%= pct.image %></td>
+    <td><%= link_to '詳細を確認する', picture_path(pct.id) %></td>
+    <td><%= link_to "ブログを編集する", edit_picture_path(pct.id) %></td>
   </tr>
 <% end %>
 </table>
