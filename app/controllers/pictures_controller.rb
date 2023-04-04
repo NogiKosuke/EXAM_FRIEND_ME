@@ -7,12 +7,16 @@ class PicturesController < ApplicationController
   end
 
   def create
-    @picture = Picture.new(picture_params)
+    @picture = current_user.pictures.build(picture_params)
     if @picture.save
     redirect_to pictures_path
     else
       render :new
     end
+  end
+
+  def show
+    
   end
 
   private
