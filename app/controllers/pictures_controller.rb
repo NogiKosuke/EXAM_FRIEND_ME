@@ -9,7 +9,7 @@ class PicturesController < ApplicationController
   def create
     @picture = current_user.pictures.build(picture_params)
     if @picture.save
-    redirect_to pictures_path
+    redirect_to pictures_path,notice: "#{current_user.name}さんがブログを作成しました！"
     else
       render :new
     end
@@ -26,10 +26,16 @@ class PicturesController < ApplicationController
   def update
     @picture = Picture.find(params[:id])
     if @picture.update(picture_params)
-      redirect_to pictures_path, notice: "ブログを編集しました！"
+      redirect_to pictures_path, notice: "#{current_user.name}さんがブログを編集しました！"
     else
       render :edit
     end
+  end
+
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to pictures_path, notice: "#{current_user.name}さんがブログを削除しました！"
   end
 
   private
