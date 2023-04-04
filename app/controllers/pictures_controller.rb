@@ -3,7 +3,11 @@ class PicturesController < ApplicationController
     @pictures = Picture.all
   end
   def new
-    @picture = Picture.new 
+    if params[:back]
+      @picture = Picture.new(picture_params)
+    else
+      @picture = Picture.new
+    end
   end
 
   def create
@@ -36,6 +40,10 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to pictures_path, notice: "#{current_user.name}さんがブログを削除しました！"
+  end
+
+  def confirm
+    @picture = Picture.new(picture_params)
   end
 
   private
