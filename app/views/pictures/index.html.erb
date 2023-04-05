@@ -1,19 +1,14 @@
 <h1>ブログ一覧</h1>
 
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th>
-  </tr>
-
-<% @pictures.each do |pct| %>
-  <tr>
-    <td><%= pct.content %></td>
-    <td><%= pct.image %></td>
-    <td><%= link_to '詳細を確認する', picture_path(pct.id) %></td>
-    <td><%= link_to "ブログを編集する", edit_picture_path(pct.id) %></td>
-    <td><%= link_to 'ブログを削除する', picture_path(pct.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %></td>
-  </tr>
-<% end %>
-</table>
 <%= link_to 'ブログを作成する', new_picture_path %>
+<% @pictures.each do |pct| %>
+  <ul>
+    <li><%= pct.content %></li>
+    <li><%= image_tag pct.image.url %></li>
+  <div class = "menu">
+    <li><%= link_to '詳細', picture_path(pct.id) %></li>
+    <li><%= link_to "編集", edit_picture_path(pct.id) %></li>
+    <li><%= link_to '削除', picture_path(pct.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %></li>
+  </div>
+  </ul>
+<% end %>

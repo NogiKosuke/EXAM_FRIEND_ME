@@ -1,5 +1,7 @@
 <h1>確認画面</h1>
 <%= form_with(model: @picture, url: pictures_path, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+  <p>本文:<%= @picture.content %></p>
   <%= image_tag(@picture.image.url) if @picture.image && @picture.image.url %>
   <%= form.hidden_field :image_cache %>
   <%= form.submit "投稿する" %>
@@ -7,5 +9,6 @@
 
 <%= form_with(model:@picture, url:new_picture_path, local:true, method:"get") do |form| %>
   <%= form.hidden_field :image_cache %>
+  <%= form.hidden_field :content %>
   <%= form.submit "戻る", name: "back" %>
 <% end %>
