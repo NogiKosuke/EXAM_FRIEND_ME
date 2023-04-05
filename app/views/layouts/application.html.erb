@@ -9,20 +9,26 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  
-  <body>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
 
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
-    
-    <%= yield %>
+  <body>
+    <div class="footerFixed">
+      <header class = 'header'>
+        <ul class = "clearfix">
+          <% if logged_in? %>
+            <li class = "item"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+            <li class = "item"><%= link_to "Profile", user_path(current_user.id) %></li>
+          <% else %>
+            <li class = "item"><%= link_to "Sign up", new_user_path %></li>
+            <li class = "item"><%= link_to "Login", new_session_path %></li>
+          <% end %>
+        </ul>
+      </header>
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+        <%= yield %>
+    </div>
+    <footer>
+    </footer>
   </body>
 </html>

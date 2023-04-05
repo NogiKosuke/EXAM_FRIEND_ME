@@ -1,0 +1,75 @@
+.header {
+  background-color: greenyellow;
+  height: 60px;
+}
+
+.item {
+  font-size: 20px;
+  float: right;
+  padding: 15px;
+  margin: 0;
+}
+
+ul{
+  padding-left:0;
+}
+
+
+.menu{
+  margin: 0 auto;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  background-color:aliceblue;
+}
+
+.menu li{
+  padding: 20px;
+}
+
+li {
+  list-style:none
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+h1{
+  text-align: center;
+}
+
+.event{
+  text-align: center;
+  margin-top: 30px;
+}
+
+.sentence {
+  font-size: 19px;
+  text-align: left;
+  word-wrap: break-word;
+  margin: 0 auto;
+  width: 500px;
+  background-color:aliceblue;
+}
+
+.side {
+text-align: center;
+}
+
+.danger{
+  text-align: center;
+}
+
+.notice{
+  text-align: center;
+}
+
+
+footer {
+  background-color: greenyellow;
+  height: 60px;
+}
+

@@ -1,14 +1,20 @@
-<h1>ブログ一覧</h1>
-
-<%= link_to 'ブログを作成する', new_picture_path %>
-<% @pictures.each do |pct| %>
-  <ul>
-    <li><%= pct.content %></li>
-    <li><%= image_tag pct.image.url %></li>
-  <div class = "menu">
-    <li><%= link_to '詳細', picture_path(pct.id) %></li>
-    <li><%= link_to "編集", edit_picture_path(pct.id) %></li>
-    <li><%= link_to '削除', picture_path(pct.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %></li>
+<h1>〜Friend　me〜</h1>
+<article>
+  <div class = "side clearfix">
+    <%= link_to 'ブログを作成する', new_picture_path %>
   </div>
-  </ul>
-<% end %>
+  <div class = "content">
+    <% @pictures.each do |pct| %>
+      <ul class = "event">
+        <li class = "sentence"><%= pct.content %></li>
+        <li class = "image"><%= image_tag pct.image.url %></li>
+      <div class = "menu clearfix">
+        <li><%= link_to '詳細', picture_path(pct.id) %></li>
+        <li><%= link_to "編集", edit_picture_path(pct.id) %></li>
+        <li><%= link_to '削除', picture_path(pct.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %></li>
+        <li>(<%= "#{pct.user.name}" %>さんが投稿)</li>
+      </div>
+      </ul>
+    <% end %>
+  </div>
+</article>
