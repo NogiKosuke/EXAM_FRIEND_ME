@@ -12,7 +12,7 @@
         <li><%= link_to '詳細', picture_path(pct.id) %></li>
         <li><%= link_to "編集", edit_picture_path(pct.id) %></li>
         <li><%= link_to '削除', picture_path(pct.id), method: :delete, data: { confirm: '本当に削除していいですか？' }  %></li>
-        <li>(<%= "#{pct.user.name}" %>さんが投稿)</li>
+        <li>(<%= pct.user.name %>さんが投稿)</li>
       </div>
       </ul>
     <% end %>
