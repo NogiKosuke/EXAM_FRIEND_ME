@@ -7,7 +7,7 @@
     <% @pictures.each do |pct| %>
       <ul class = "event">
         <li class = "sentence"><%= pct.content %></li>
-        <li class = "image"><%= image_tag pct.image.image-url %></li>
+        <li class = "image"><%= image_tag pct.image.url %></li>
       <div class = "menu clearfix">
         <li><%= link_to '詳細', picture_path(pct.id) %></li>
         <li><%= link_to "編集", edit_picture_path(pct.id) %></li>
