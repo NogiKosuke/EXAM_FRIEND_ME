@@ -27,6 +27,7 @@ gem 'net-imap'
 gem 'net-pop'
 gem 'dotenv-rails'
 gem 'unicorn'
+gem 'fog-aws'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
